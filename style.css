@@ -1,0 +1,492 @@
+/* ベースの設定 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif; /* 優しい丸ゴシック */
+    color: #333333;
+    background-color: #f7fbfc; /* 背景はほんのり水色 */
+    padding-top: 80px; /* ヘッダーの高さ分、全体を下げる */
+}
+
+/* スムーズにスクロールさせ、固定ヘッダーの下に隠れないようにする設定 */
+html {
+    scroll-behavior: smooth; /* リンクを押したときにスルスルッと動く */
+    scroll-padding-top: 100px; /* 飛んだときにヘッダーの高さ分（100px）手前で止まるようにする */
+}
+a {
+    text-decoration: none;
+}
+
+/* ヘッダーの設定 */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed; /* 画面の一番上に固定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 100; /* 他の要素より上に重ねる */
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+}
+
+.logo h1 {
+    color: #61b5d9; /* テーマカラーの水色 */
+    font-size: 24px;
+    margin: 0;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: #555555;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #61b5d9; /* マウスを乗せたら水色に */
+}
+
+/* WEB予約ボタン */
+.reserve-btn {
+    background-color: #ff9d76; /* 少し温かみのあるオレンジのアクセント */
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 700;
+    box-shadow: 0 4px 6px rgba(255, 157, 118, 0.3);
+    transition: transform 0.2s;
+}
+
+.reserve-btn:hover {
+    transform: translateY(-2px); /* マウスを乗せたら少し浮く */
+}
+
+/* ハンバーガーメニュー（今はPC画面では隠しておく） */
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* メインビジュアル (Hero) */
+.hero {
+    /* TODO: 後でここに親子の写真などの背景画像を設定します！ */
+    background-color: #e0f2fe; 
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content h2 {
+    color: #333333;
+    font-size: 36px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    color: #61b5d9;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* お知らせ (News) */
+.news-section {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.news-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.news-label {
+    background-color: #61b5d9;
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.news-text {
+    margin: 0;
+    font-size: 15px;
+    flex: 1;         /* ← 残りのスペースを全部テキストに譲る！ */
+    min-width: 0;
+}
+
+/* === 共通設定（各セクションの余白とタイトル） === */
+.section-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+.section-title {
+    text-align: center;
+    color: #61b5d9;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+.section-title::after {
+    /* タイトルの下におしゃれなオレンジの線を引く */
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #ff9d76;
+    margin: 10px auto 0;
+    border-radius: 3px;
+}
+
+/* === 1. 診療案内 (Gridレイアウト) === */
+.service-section {
+    background-color: #f7fbfc;
+}
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3等分に並べる */
+    gap: 20px;
+}
+.service-card {
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+.service-card:hover {
+    transform: translateY(-5px); /* マウスを乗せたら少し浮く！ */
+}
+.service-card .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+.service-card h3 {
+    color: #333333;
+    margin-bottom: 10px;
+}
+.service-card p {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* === スタッフ紹介（3人縦並び） === */
+.staff-section {
+    background-color: #ffffff;
+}
+
+.staff-list {
+    display: flex;
+    flex-direction: column; /* 上から下に縦に並べる */
+    gap: 20px; /* カード同士の間隔 */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.staff-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: #f7fbfc; /* ほんのり水色の背景 */
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.staff-img img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+}
+
+.staff-message h3 {
+    color: #333333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.staff-message p {
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* === 3. よくある質問 (アコーディオン) === */
+.faq-section {
+    background-color: #f7fbfc;
+}
+.faq-item {
+    background: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    overflow: hidden;
+}
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: inherit;
+}
+.faq-answer {
+    max-height: 0; /* 最初は高さを0にして隠す */
+    overflow: hidden;
+    transition: max-height 0.3s ease; /* スッと開くアニメーション */
+    background-color: #fafafa;
+}
+.faq-answer p {
+    padding: 0 20px 20px 20px;
+    margin: 0;
+    color: #555555;
+    line-height: 1.6;
+}
+
+/* JavaScriptが 'active' をつけた時のCSS */
+.faq-item.active .faq-answer {
+    max-height: 200px; /* 開いた時の高さ */
+}
+.faq-item.active .faq-icon {
+    transform: rotate(45deg); /* ＋を「×」に回転させる！ */
+}
+.faq-icon {
+    transition: transform 0.3s;
+    color: #61b5d9;
+    font-size: 20px;
+}
+
+/* === 4. 施設案内 (Facility) === */
+.facility-section {
+    background-color: #ffffff;
+}
+.facility-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3つ並べる */
+    gap: 20px;
+}
+.facility-card {
+    background: #f7fbfc;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.facility-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+.facility-info {
+    padding: 20px;
+}
+.facility-info h3 {
+    color: #333333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.facility-info p {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* === 5. アクセス (Access) === */
+.access-section {
+    background-color: #f7fbfc;
+}
+.access-container {
+    display: flex;
+    gap: 40px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    align-items: center;
+}
+.access-info {
+    flex: 1;
+}
+.access-info h3 {
+    color: #333333;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.address, .tel {
+    color: #555555;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+.access-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 10px 0;
+    text-align: center;
+    font-size: 14px;
+}
+.access-table th, .access-table td {
+    border: 1px solid #e0e0e0;
+    padding: 8px;
+}
+.access-table th {
+    background-color: #e0f2fe;
+    color: #333333;
+}
+.note {
+    font-size: 13px;
+    color: #777777;
+}
+.access-map {
+    flex: 1;
+}
+.access-map img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* =========================================
+   スマホ用の表示設定（画面幅が768px以下の場合）
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. ハンバーガーボタンを表示する */
+    .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        z-index: 200; /* メニューより上に表示 */
+    }
+
+    /* 三本線のデザイン */
+    .hamburger-btn span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #61b5d9;
+        transition: all 0.3s; /* 動くスピード */
+    }
+
+    /* 2. メニューを画面外に隠しておく */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* 最初は画面の右外に隠す！ */
+        width: 80%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding-top: 100px;
+        transition: right 0.3s ease; /* スッと出てくるアニメーション */
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    /* =========================================
+       JavaScriptが発動（active）した時の動き
+       ========================================= */
+    /* メニューが画面に入ってくる！ */
+    .nav-menu.active {
+        right: 0; 
+    }
+
+    /* 三本線が「×（バツ）」マークに変身する！ */
+    .hamburger-btn.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-btn.active span:nth-child(2) {
+        opacity: 0; /* 真ん中の線は透明にする */
+    }
+    .hamburger-btn.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* 予約ボタンはスマホでは少し小さく */
+    .reserve-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-right: 15px; /* ハンバーガーボタンとの隙間 */
+    }
+    /* 施設案内とアクセスをスマホで縦並びにする */
+    .facility-grid {
+        grid-template-columns: 1fr;
+    }
+    .access-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+    .news-inner {
+        flex-direction: column; /* ラベルと文章を「縦並び」にする */
+        align-items: flex-start; /* 左寄せにする */
+        gap: 8px; /* ラベルと文章のすき間を少し縮める */
+    }
+    /* スマホでは写真とテキストを縦並びにする */
+    .staff-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+    }
+    /* スタッフ2人をスマホで縦並びにする */
+    .sub-staff-grid {
+        grid-template-columns: 1fr;
+    }
+    .sub-staff-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+    /* Googleマップが潰れるのを防ぐ設定 */
+    .access-map iframe {
+    width: 100% !important;
+    height: 300px !important;     /* 高さを300pxに指定 */
+    min-height: 300px !important; /* 絶対に300pxより小さくならないようにするバリア！ */
+    border-radius: 8px;           /* ついでに角を少し丸くしておくとオシャレになります✨ */
+    }
+}    
