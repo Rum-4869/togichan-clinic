@@ -43,6 +43,7 @@ header {
     color: #61b5d9; /* テーマカラーの水色 */
     font-size: 24px;
     margin: 0;
+    white-space: nowrap;
 }
 
 .nav-menu ul {
@@ -76,6 +77,7 @@ header {
 
 .reserve-btn:hover {
     transform: translateY(-2px); /* マウスを乗せたら少し浮く */
+    white-space: nowrap;
 }
 
 /* ハンバーガーメニュー（今はPC画面では隠しておく） */
@@ -389,6 +391,13 @@ header {
    スマホ用の表示設定（画面幅が768px以下の場合）
    ========================================= */
 @media (max-width: 768px) {
+    .logo h1 {
+        font-size: 18px; /* ← 今の文字サイズより少し小さめの数字に調整してみてください */
+    }
+    .reserve-btn {
+        font-size: 12px;       /* 文字を少し小さく */
+        padding: 8px 12px;     /* ボタンの余白も少しスリムに */
+    }
     /* 1. ハンバーガーボタンを表示する */
     .hamburger-btn {
         display: flex;
