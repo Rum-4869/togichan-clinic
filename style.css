@@ -307,12 +307,13 @@ header {
     padding-top: 120px;
 }
 .reserve-container {
-    max-width: 700px;
+    width: min(100%, 700px);
     margin: 0 auto;
     padding: 32px;
     background: #ffffff;
     border-radius: 20px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+    box-sizing: border-box;
 }
 .reserve-form label {
     display: block;
@@ -330,6 +331,7 @@ header {
     font-size: 14px;
     font-family: inherit;
     margin-top: 8px;
+    box-sizing: border-box;
 }
 .reserve-form textarea {
     resize: vertical;
@@ -599,6 +601,14 @@ header {
     /* 施設案内とアクセスをスマホで縦並びにする */
     .facility-grid {
         grid-template-columns: 1fr;
+    }
+    .reserve-container {
+        width: 100%;
+        padding: 24px;
+        margin: 0 auto;
+    }
+    .reserve-form {
+        max-width: 100%;
     }
     .access-container {
         flex-direction: column;
