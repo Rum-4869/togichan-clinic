@@ -95,6 +95,8 @@ app.post('/reserve', (req, res) => {
   });
 });
 
+app.use(express.static(path.join(__dirname), { index: false }));
+
 const port = Number(process.env.PORT || 3000);
 const host = '127.0.0.1';
 
