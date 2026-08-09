@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ウェブ予約 | とぎちゃんクリニック</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <h1>とぎちゃんクリニック</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html#news">お知らせ</a></li>
+                    <li><a href="index.html#service">診療案内</a></li>
+                    <li><a href="index.html#staff">スタッフ</a></li>
+                    <li><a href="index.html#facility">施設案内</a></li>
+                    <li><a href="index.html#access">アクセス</a></li>
+                    <li><a href="index.html#faq">よくある質問</a></li>
+                </ul>
+            </nav>
+            <a href="reserve.html" class="reserve-btn">ウェブ予約</a>
+            <button class="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="status-badge" class="status-badge status-open">🟢 現在、診療受付中です</div>
+    </header>
+
+    <main class="reserve-page">
+        <section class="section-inner">
+            <h2 class="section-title">ウェブ予約</h2>
+            <div class="reserve-container">
+                <form action="thanks.html" method="get" class="reserve-form">
+                    <label>
+                        お名前
+                        <input type="text" name="name" required>
+                    </label>
+                    <label>
+                        電話番号
+                        <input type="tel" name="phone" required>
+                    </label>
+                    <label>
+                        受診希望日
+                        <input type="date" name="date" required>
+                    </label>
+                    <label>
+                        受診科
+                        <select name="department" required>
+                            <option value="一般小児科">一般小児科</option>
+                            <option value="小児アレルギー科">小児アレルギー科</option>
+                            <option value="小児皮膚科">小児皮膚科</option>
+                            <option value="育児・栄養相談">育児・栄養相談</option>
+                            <option value="予防接種">予防接種</option>
+                            <option value="乳幼児健診">乳幼児健診</option>
+                        </select>
+                    </label>
+                    <label>
+                        備考
+                        <textarea name="note" rows="4"></textarea>
+                    </label>
+                    <button type="submit" class="submit-btn">送信する</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© 2026 とぎちゃんクリニック. All rights reserved.</p>
+            <p>架空のサイトです。実際の医療機関ではありません。</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
