@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('partials/header', { statusBadge, year }) %>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>地域のこどもたちと、<br>パパママの笑顔を守る。</h2>
+            <p>小児科・予防接種・乳幼児健診</p>
+        </div>
+    </section>
+
+    <section id="news" class="news-section">
+        <% newsItems.forEach((item, index) => { %>
+            <div class="news-inner" style="<%= index > 0 ? 'border-top: 1px solid #f0f0f0;' : '' %>">
+                <span class="news-label" style="background-color: <%= item.color %>;"><%= item.label %></span>
+                <p class="news-text"><%= item.text %></p>
+            </div>
+        <% }) %>
+    </section>
+
+    <section id="service" class="service-section">
+        <div class="section-inner">
+            <h2 class="section-title">診療案内</h2>
+            <div class="service-grid">
+                <% services.forEach((service) => { %>
+                    <div class="service-card fade-in">
+                        <div class="icon"><%= service.icon %></div>
+                        <h3><%= service.title %></h3>
+                        <p><%= service.description %></p>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+
+    <section id="staff" class="staff-section">
+        <div class="section-inner">
+            <h2 class="section-title">スタッフ紹介</h2>
+            <div class="staff-list">
+                <% staffMembers.forEach((member) => { %>
+                    <div class="staff-card fade-in">
+                        <div class="staff-img">
+                            <img src="<%= member.image %>" alt="<%= member.name %>">
+                        </div>
+                        <div class="staff-message">
+                            <h3><%= member.name %></h3>
+                            <p><%= member.text %></p>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+
+    <section id="facility" class="facility-section">
+        <div class="section-inner">
+            <h2 class="section-title">施設案内</h2>
+            <div class="facility-grid">
+                <% facilities.forEach((facility) => { %>
+                    <div class="facility-card fade-in">
+                        <img src="<%= facility.image %>" alt="<%= facility.title %>">
+                        <div class="facility-info">
+                            <h3><%= facility.title %></h3>
+                            <p><%= facility.description %></p>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+
+    <section id="access" class="access-section">
+        <div class="section-inner">
+            <h2 class="section-title">アクセス・診療時間</h2>
+            <div class="access-container">
+                <div class="access-info">
+                    <h3>とぎちゃんクリニック</h3>
+                    <p class="address">ワシントンD.C.北西地区ペンシルベニア通り1600</p>
+                    <p class="tel">📞 TEL: 202-456-1111</p>
+                    <table class="access-table">
+                        <tr>
+                            <th>診療時間</th>
+                            <th>月</th>
+                            <th>火</th>
+                            <th>水</th>
+                            <th>木</th>
+                            <th>金</th>
+                            <th>土</th>
+                            <th>日</th>
+                        </tr>
+                        <% scheduleRows.forEach((row) => { %>
+                            <tr>
+                                <td><%= row.time %></td>
+                                <% row.days.forEach((day) => { %>
+                                    <td><%= day %></td>
+                                <% }) %>
+                            </tr>
+                        <% }) %>
+                    </table>
+                    <p class="note">【休診日】木曜・日曜・祝日</p>
+                </div>
+                <div class="access-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12420.110220236287!2d-77.04560659017815!3d38.900485187008556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7bcdecbb1df%3A0x715969d86d0b76bf!2z44Ob44Ov44Kk44OI44OP44Km44K5!5e0!3m2!1sja!2sjp!4v1785654317381!5m2!1sja!2sjp" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="section-inner">
+            <h2 class="section-title">よくある質問</h2>
+            <div class="faq-list">
+                <% faqItems.forEach((item) => { %>
+                    <div class="faq-item">
+                        <button class="faq-question"><%= item.question %><span class="faq-icon">＋</span></button>
+                        <div class="faq-answer">
+                            <p><%= item.answer %></p>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+
+    <a href="#" id="back-to-top" class="back-to-top">▲</a>
+    <%- include('partials/footer', { year }) %>
+    <script src="script.js"></script>
+</body>
+</html>
